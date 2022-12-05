@@ -28,7 +28,7 @@ class A_T01a(TestCase):
         TPRV_t = np.array([0,self._Tsimu/6,self._Tsimu/5+Xtime,self._Tsimu/5+Xtime+600,self._Tsimu/5+2*Xtime+600,self._Tsimu])
         TPRV_fun = np.array([TPRV_degC,TPRV_degC,TPRV_Max_degC,TPRV_Max_degC,TPRV_degC,TPRV_degC])
 
-        self._TPRV_degC = discretize(TPRV_t,TPRV_fun,dt)
+        self._TPRV_degC = discretize(TPRV_t,TPRV_fun,dt,2)
 
     
     

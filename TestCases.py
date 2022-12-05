@@ -1,18 +1,28 @@
 import numpy as np
 
-def discretize(t,fun,dt):
+# THIS FUNCTION DISCRETIZE A GIVEN VECTOR WITH STEP dt.
+# The second option is almost twice as fast as the first, but has not been extensively tested
+def discretize(t,fun,dt,opt):
     n = int(t[len(t)-1]/dt)+1
     ret = np.zeros(n)
-
-    for i in range(0,n):
-        for k in range(1,len(t)):
-            if t[k-1]<=i*dt and i*dt<t[k]:
-                flag = k
-                break
-        x_interp = np.array([fun[k-1],fun[k]])
-        t_interp = np.array([t[k-1],t[k]])
-        ret[i] = np.interp(i*dt,t_interp,x_interp)
-    
+    if opt==1:
+        for i in range(0,n):
+            for k in range(1,len(t)):
+                if t[k-1]<=i*dt and i*dt<t[k]:
+                    break
+            x_interp = np.array([fun[k-1],fun[k]])
+            t_interp = np.array([t[k-1],t[k]])
+            ret[i] = np.interp(i*dt,t_interp,x_interp)
+    elif opt==2:
+        ret[0] = fun[0]
+        count_t = 1
+        for k in range(1,len(fun)):
+            x_interp = np.array([fun[k-1],fun[k]])
+            t_interp = np.array([t[k-1],t[k]])
+            ns = int(round((t[k]-t[k-1])/dt))+1
+            for i in range(1,ns):
+                ret[count_t] = np.interp(count_t*dt,t_interp,x_interp)
+                count_t+=1
     return ret
 
 
