@@ -6,10 +6,6 @@ import shutil
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def Merge(dict1, dict2):
-    res = {**dict1, **dict2}
-    return res
-
 # define the model name and simulation parameters
 fmu_plant_filename = 'PLANT_v3.fmu'
 fmu_controller_filename = 'CTRL_v3.fmu'
@@ -135,6 +131,9 @@ while time < Tend:
 
 fmu_plant.terminate()
 fmu_plant.freeInstance()
+
+fmu_controller.terminate()
+fmu_controller.freeInstance()
 
 # clean up
 shutil.rmtree(unzipdir_plant, ignore_errors=True)
