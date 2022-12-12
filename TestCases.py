@@ -29,7 +29,8 @@ def discretize(t,fun,dt,opt):
 class TestCase:
 
     def __init__(self,dt):
-        self._Tsimu = 3500
+        self._Tsimu = 0
+        self._Tend = 0
         self._time = np.linspace(0,self._Tsimu,int(self._Tsimu/dt)+1)
 
         self._MACH = []
@@ -108,3 +109,6 @@ class TestCase:
 
     def getT_tgt_C(self):
         return self._T_tgt_C
+        
+    def getTend(self):
+        return self._Tend
