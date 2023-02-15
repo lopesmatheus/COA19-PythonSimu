@@ -7,8 +7,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # define the model name and simulation parameters
-fmu_plant_filename = 'PLANT_v3.fmu'
-fmu_controller_filename = 'CTRL_v3.fmu'
+fmu_plant_filename = 'PLANT_v3_mac.fmu'
+fmu_controller_filename = 'CTRL_v3_mac.fmu'
 step_size = 10**(-3)
 CaseTest = A_T01a(step_size)
 Tend = CaseTest.getTsimu()
