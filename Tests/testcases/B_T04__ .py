@@ -1,7 +1,7 @@
 import numpy as np
 from TestCases import TestCase, discretize
 
-class B_T03__(TestCase):
+class B_T04__(TestCase):
 
     def __init__(self,dt):
         self._Tsimu = 1000
@@ -17,13 +17,13 @@ class B_T03__(TestCase):
 
         self._T_FAN_degC = [70.0]
         self._P_FAN_barg = [0.7]
-        self._OPV_FLOW_kg_min = [103.2]
+        self._OPV_FLOW_kg_min = [95]
         self._OPV_TEMP_degC = [253]
         self._PPRV_barg = [8.0]
-        self._T_tgt_C = [199]
+        self._T_tgt_C = [230]
 
         TPRV_degC = 90
-        TPRV_Max_degC = 295
+        TPRV_Max_degC = 300
 
         TPRV_t = np.array([0,self._Tsimu/4,self._Tsimu/4+1,self._Tsimu])
         TPRV_fun = np.array([TPRV_degC,TPRV_degC,TPRV_Max_degC,TPRV_Max_degC])

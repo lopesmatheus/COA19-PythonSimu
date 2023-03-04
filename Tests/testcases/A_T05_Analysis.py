@@ -9,7 +9,8 @@ class A_T05_Analysis(TestCase):
         self._Tend = 600
         self._time = np.linspace(0,self._Tsimu,int(self._Tsimu/dt)+1)
         self._order = []
-        self._constants = [2,3,4,5,7,8,9,10]
+        self._constants_inputs = [2,3,4,5,7,8,9,10]
+        self._variables_inputs = [6]
 
         self._MACH = [0.8]
         self._ZA_FT = [40000]

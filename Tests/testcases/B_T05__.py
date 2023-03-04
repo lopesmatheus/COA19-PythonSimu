@@ -1,6 +1,5 @@
 import numpy as np
 from TestCases import TestCase, discretize
-import matplotlib.pyplot as plt
 
 class B_T05__(TestCase):
 
@@ -9,7 +8,8 @@ class B_T05__(TestCase):
         self._Tend = 0
         self._time = np.linspace(0,self._Tsimu,int(self._Tsimu/dt)+1)
         self._order = []
-        self._constants = [2,3,4,5,7,8,9,10]
+        self._constants_inputs = [2,3,4,5,7,8,9,10]
+        self._variables_inputs = [6]
 
         self._MACH = [0.55]
         self._ZA_FT = [17000.0]
@@ -24,7 +24,6 @@ class B_T05__(TestCase):
         
         TPRV_degC = 90
         TPRV_Max_degC = 290
-        Xtime = (TPRV_Max_degC - TPRV_degC)*5.5
 
         TPRV_t = np.array([0,self._Tsimu/4,self._Tsimu/4+1,self._Tsimu])
         TPRV_fun = np.array([TPRV_degC,TPRV_degC,TPRV_Max_degC,TPRV_Max_degC])

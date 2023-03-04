@@ -9,7 +9,8 @@ class A_T02b(TestCase):
         self._Tend = 600
         self._time = np.linspace(0,self._Tsimu,int(self._Tsimu/dt)+1)
         self._order = []
-        self._constants = [2,3,4,5,7,8,9,10]
+        self._constants_inputs = [2,3,4,5,7,8,9,10]
+        self._variables_inputs = [6]
 
         self._MACH = [0.5]
         self._ZA_FT = [25000]
@@ -30,11 +31,3 @@ class A_T02b(TestCase):
         TPRV_fun = np.array([TPRV_degC,TPRV_degC,TPRV_Max_degC,TPRV_Max_degC,TPRV_degC,TPRV_degC])
 
         self._TPRV_degC = discretize(TPRV_t,TPRV_fun,dt,2)
-
-    
-    
-
-#Case1 = A_T01a(10**(-3))
-#plt.plot(Case1._time,Case1._TPRV_degC)
-#plt.axis([0,3500,180,360])
-#plt.show()
